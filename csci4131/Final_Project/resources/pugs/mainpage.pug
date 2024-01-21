@@ -1,0 +1,45 @@
+include header.pug 
+doctype html
+html(lang="en")
+    head 
+        meta(charset="utf-8")
+        title Tweeter Main
+        link(rel="stylesheet" type="text/css" href="/css/main.css")
+        script(src='/js/main.js' defer='')
+    body.grid#background   
+        +header("/login", "/logout", "/")
+        div.page-main 
+            div.sortButton 
+                p.changeSortingButton Change Sorting of Posts:
+                button.sortingButtons#sortByLikesButton(type='button') Sort By Likes 
+                button.sortingButtons#sortByRecentButton(type='button') Sort By Recent 
+            div 
+                p.changeSortingButton#currentSortMethod Current Sorting Method: #{sortMethod} 
+            if (recentPosts)
+                each post in recentPosts 
+                    div.content(id=post["id"]) 
+                        div.postText #{post["content"]}
+                        div.postCreator - #{post["creator"]} 
+                        if user != post["creator"]
+                            button(id=String(post["id"])).likeButton <3 
+                        div.postCreator#likeNumber #{post["likes"]} likes
+                        if user == post["creator"]
+                            button#deleteButton.deleteButton(type=button) Delete
+                            a(href=`/edit:${post["id"]}` id=String(post["id"])).editPost Edit 
+            div.pageChange 
+                if page != 1 && recentPosts.length == 10 
+                    a#prevPageButton(href=`/?page=${page-1}`) Prev 
+                    a#nextPageButton(href=`/?page=${page+1}`) Next 
+                else if page != 1 && recentPosts.length != 10 
+                    a#prevPageButton(href=`/?page=${page-1}`) Prev 
+                else if page == 1 && recentPosts.length == 10 
+                    a#nextPageButton(href=`/?page=${page+1}`) Next 
+        if user == "not signed in"
+            div.page-rightbar Please sign in to post 
+        else 
+            form.page-rightbar(action='/postForm' method='post')
+                div.textAreaForPost 
+                    textarea#postText(name='userPost' maxlength=100 required placeholder="Start typing your nice post..." rows=6 cols=28)
+                div.submitButton
+                    input(type='submit' value="Post")
+                p.userTagOnPost - #{user} 

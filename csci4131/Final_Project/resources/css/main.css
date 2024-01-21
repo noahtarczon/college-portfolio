@@ -1,0 +1,227 @@
+.grid {
+    display: grid;
+    grid-template-columns: 60vw auto;
+    grid-template-rows: 5em minmax(160px) auto;
+    grid-template-areas: 
+      'header header'
+      'main rightbar'
+      'footer footer';
+    /* column-gap: 4em; */
+    row-gap: 3em;
+    padding: 1em;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+.header-title {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.top em {
+    color: azure;
+}
+.right {
+    margin: auto;
+    padding: 1em;
+}
+.bottom {
+    margin: 0 0 0.5em;
+}
+  
+  .page-header {
+    grid-area: header;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 90vw;
+    margin: auto;
+    /* border: 1px solid; */
+    border-radius: 1em;
+    background-color: RGB(29, 161, 242);
+  }
+  
+  .page-rightbar {
+    grid-area: rightbar;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 auto;
+    padding: 1em;
+    border-radius: 1em;
+    background-color: RGB(29, 161, 242);
+    width: 75%;
+  }
+  
+  .page-main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: auto;
+    width: 75%;
+    border-radius: 1em;
+    background-color: rgb(29, 161, 242);
+
+  }
+  
+  .page-footer {
+    grid-area: footer;
+    margin: auto;
+    border: 1px solid black;
+  }
+  
+  .content { /* need to edit like testimonies*/
+    display: flex;
+    flex-direction: column;
+    color: black;
+    border: 3px solid rgb(76, 99, 202);
+    border-radius: 1em;
+    background-color: azure;
+    font-weight: 600;
+    text-align: center;
+    box-sizing: border-box;
+    height: 100%;
+    width: 75%;
+    word-wrap: break-word;
+    padding: 10px;
+    margin: 1em auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+.sortButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+}
+.sortingButtons {
+    display: flex;
+    justify-content: space-around;
+    margin: auto 1em;
+}
+.changeSortingButton {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+#currentSortMethod {
+    margin: auto;
+    padding: 1em;
+}
+
+
+#background {
+    background-color: rgb(188, 223, 245);
+}
+
+.pages {
+    display: flex;
+    flex-direction: column;
+    width: 132px;
+    text-align: center;
+    justify-content: center;
+    padding: 1em;
+}
+.pageswap {
+    display: flex;
+    /* flex-direction: column; */
+    height: 1em;
+    width: 100px;
+    margin: 0.33em 0em;
+    padding: 0.25em 0 ;
+    border: 3px solid rgb(76, 99, 202);
+    border-radius: 0.5em;
+    background-color:azure;
+    justify-content: center;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    color: rgb(29, 161, 242);
+}
+.pageswap:hover {
+    border: 3px solid rgb(255, 201, 100);
+}
+
+/* Login page */
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 8em auto;
+    padding: 5em;
+    width: 40vw;
+    background-color: rgb(29, 161, 242);
+    border-radius: 1em;
+}
+.username {
+    margin:auto;
+    padding: 1em;
+}
+.password {
+    margin:auto;
+    padding: 1em;
+}
+.submit {
+    margin:auto;
+    padding: 1em;
+}
+
+/* Create Post */
+.textAreaForPost {
+    margin: auto;
+}
+#postText {
+    width: 100%;
+}
+.userTagOnPost {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    text-align: right;
+}
+.submitButton {
+    text-align: center;
+}
+#hidden {
+    display: none;
+}
+
+/* Created Posts */
+.postText {
+    text-align: left;
+    padding: 0.5em;
+}
+.postCreator {
+    text-align: right;
+    padding: 0.5em;
+}
+#editButton {
+    margin: auto;
+    width: 20em;
+}
+.likeButton {
+    margin: auto 0 auto auto ;
+    width: 5em;
+}
+
+/* Pagination Buttons */
+.pageChange {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#prevPageButton {
+    width: 12em;
+    height: 3em;
+}
+#nextPageButton {
+    width: 12em;
+    height: 3em;
+    text-align: right;
+}

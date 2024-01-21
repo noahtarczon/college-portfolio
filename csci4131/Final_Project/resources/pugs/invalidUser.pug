@@ -1,0 +1,16 @@
+include header.pug 
+doctype html 
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        title Tweeter Not Authorized 
+        link(rel='stylesheet' type='text/css' href='css/main.css')
+    body#background  
+        +header("/login", "/logout", "/")
+        div.box 
+            p.content 
+                |You are not authorized to edit this post. 
+                br
+                br 
+                |Please don't do that again. 
+            

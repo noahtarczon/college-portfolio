@@ -1,0 +1,21 @@
+include header.pug 
+doctype html 
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        title Tweeter Update Post 
+        link(rel='stylesheet' type='text/css' href='css/main.css')
+    body#background  
+        +header("/login", "/logout", "/")
+        form.box(action='/update' method='post') 
+            div.username Current Post content: 
+            div.content #{post["content"]} 
+            div.username 
+                label(for='postText') New Post Text: 
+                textarea(name='postText' id="postText" maxlength=100 required placeholder="Start typing your nice post..." rows=6 cols=30)  
+            div#hidden 
+                input(type="text" name="postID" value=post["post_id"])
+                input(type="text" name="postCreator" value=post["username"])
+                input(type="text" name="postPrevValue" value=post["content"])
+            div.submit 
+                input(type='submit')
