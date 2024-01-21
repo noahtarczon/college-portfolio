@@ -99,7 +99,8 @@ int write_http_response(int fd, const char *resource_path) {
         return -1;
     }
 
-    const char *t = get_mime_type(end);      //t is the file type
+    //t is the file type
+    const char *t = get_mime_type(end);
     if(t == NULL){
         perror("get_mine_type");
         return -1;
