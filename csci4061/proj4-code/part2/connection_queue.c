@@ -35,7 +35,6 @@ int connection_enqueue(connection_queue_t *queue, int connection_fd) {
         return -1;
     }  
     while (queue->length == CAPACITY && queue->shutdown == 0) {
-        //maybe check if empty and full are in the correct spots (switch?) (should be ok now?)
        if((ret_val = pthread_cond_wait(&queue->full, &queue->lock))!= 0){
             fprintf(stderr, "pthread_wait in enqueue: %s\n", strerror(ret_val));
             pthread_mutex_unlock(&queue->lock);
@@ -82,8 +81,7 @@ int connection_dequeue(connection_queue_t *queue) {
         pthread_mutex_unlock(&queue->lock);
         return 0;
     }
-    //queue->client_fds[queue->read_idx];
-    int connection_fd = queue->client_fds[queue->read_idx];   // idk what to do here, this needs to be changed
+    int connection_fd = queue->client_fds[queue->read_idx];
     queue->read_idx = (queue -> read_idx + 1) % CAPACITY;
     queue->length--;
 
@@ -127,12 +125,7 @@ int connection_queue_shutdown(connection_queue_t *queue) {
 
 int connection_queue_free(connection_queue_t *queue) {
     // use destroy here for pthread_mutex_destroy and all the others
-    // TODO Not yet implemented
     int ret_val;
-    // if((ret_val = pthread_mutex_lock(&queue->lock))!=0){      // do i need this here, or just the destroy??
-    //     fprintf(stderr, "pthread_lock: %s\n", strerror(ret_val));
-    //     return -1;
-    // }
     if((ret_val = pthread_mutex_destroy(&queue->lock))!=0){
         fprintf(stderr, "pthread_mutex_destroy: %s\n", strerror(ret_val));
         return -1;
