@@ -127,7 +127,8 @@ int main(int argc, char **argv) {
 
     sigset_t newmask;
     sigset_t oldmask;
-    sigprocmask(SIG_BLOCK, &newmask, &oldmask);           //need to block all signals before thread creation then allow after
+    //need to block all signals before thread creation then allow after
+    sigprocmask(SIG_BLOCK, &newmask, &oldmask);
     int result;
     pthread_t worker_threads[N_THREADS];
     for (int i = 0; i < N_THREADS; i++) {
@@ -136,7 +137,8 @@ int main(int argc, char **argv) {
             return 1;
         }
     }
-    sigprocmask(SIG_SETMASK, &oldmask, NULL);           //allowing SIGs after thread creation
+    //allowing SIGs after thread creation
+    sigprocmask(SIG_SETMASK, &oldmask, NULL);
 
     while(keep_going != 0){
         int fd_client = accept(fd_socket, NULL, NULL);
