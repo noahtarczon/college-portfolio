@@ -8,6 +8,7 @@
 
 ## Project Overview
 **NOTE** Modified directories to only contain files directly edit by myself. For the entire project please look into our Docker setup.
+
 The project is about a drone simulation system over the University of Minnesota Twin Cities campus. The drones deliver packages to robots, and this is scheduled through an HTML page that allows a user to choose locations the drone will pick up and drop a package off at. 
 
 ## Youtube Walkthrough
