@@ -1,10 +1,10 @@
 # 3081 Final Project - Team-001-22  🚁 📦
 
 ### Team Members:
-- Javier Avelar: avela020
-- Tristan Keene: keene083
-- Morgan Nakonechny: nakon005
-- Noah Tarczon: tarcz008
+- Javier A
+- Tristan K
+- Morgan N
+- Noah Tarczon
 
 ## Project Overview
 
